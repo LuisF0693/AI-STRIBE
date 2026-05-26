@@ -28,6 +28,8 @@ export interface Nota {
   approved_by: string | null;
   approved_at: string | null;
   pdf_status: PdfStatus;
+  pdf_url: string | null;
+  pdf_signed: boolean;
   created_at: string;
   updated_at: string;
 }

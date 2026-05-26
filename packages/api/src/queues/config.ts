@@ -8,6 +8,7 @@ export const QUEUE_NAMES = {
   AUDIO_UPLOAD: 'audio-upload',
   TRANSCRIPTION: 'transcription',
   NOTE_GENERATION: 'note-generation',
+  PDF_GENERATION: 'pdf-generation',
 } as const;
 
 export const QUEUE_CONFIG = {
@@ -34,6 +35,16 @@ export const QUEUE_CONFIG = {
     defaultJobOptions: {
       attempts: 2,
       backoff: { type: 'exponential' as const, delay: 5_000 },
+      removeOnComplete: { count: 1000 },
+      removeOnFail: false,
+    },
+  },
+  pdfGeneration: {
+    concurrency: 3,
+    defaultJobOptions: {
+      // AC: 9 — 3 tentativas com backoff exponencial: 30s, 2min, 10min
+      attempts: 3,
+      backoff: { type: 'exponential' as const, delay: 30_000 },
       removeOnComplete: { count: 1000 },
       removeOnFail: false,
     },

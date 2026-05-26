@@ -26,7 +26,12 @@ export const noteEvents = new QueueEvents(QUEUE_NAMES.NOTE_GENERATION, {
   connection: redisConnection,
 });
 
-export const allQueues = [audioUploadQueue, transcriptionQueue, noteGenerationQueue];
+export const pdfGenerationQueue = new Queue(QUEUE_NAMES.PDF_GENERATION, {
+  connection: redisConnection,
+  defaultJobOptions: QUEUE_CONFIG.pdfGeneration.defaultJobOptions,
+});
+
+export const allQueues = [audioUploadQueue, transcriptionQueue, noteGenerationQueue, pdfGenerationQueue];
 
 /** Métricas agregadas para health check e Prometheus. */
 export async function getQueueMetrics() {

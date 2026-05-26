@@ -1,4 +1,5 @@
 export type NotaStatus = 'draft' | 'reviewed' | 'approved' | 'exported';
+export type PdfStatus = 'none' | 'pending' | 'processing' | 'ready' | 'failed';
 
 export interface SoapJson {
   subjetivo: string;
@@ -24,6 +25,9 @@ export interface Nota {
   baixa_confianca: boolean;
   versao: number;
   assinatura_hash: string | null;
+  approved_by: string | null;
+  approved_at: string | null;
+  pdf_status: PdfStatus;
   created_at: string;
   updated_at: string;
 }

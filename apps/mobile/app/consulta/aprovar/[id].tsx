@@ -1,11 +1,10 @@
-'use client';
 /**
  * Tela de Aprovação da Nota SOAP
  * Story 3.2 — AC: 2, 4, 8
  * Recebe notaId via query param, chama POST /aprovar, redireciona para PDF
  */
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { View, Text, ActivityIndicator, TouchableOpacity, StyleSheet } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
 import { useNotaStore } from '../../../stores/nota.store';

@@ -26,17 +26,6 @@ const mockCids: CidSugestao[] = [
   { codigo: 'G44', descricao: 'Cefaleia tensional', confianca: 0.9 },
 ];
 
-const buildSupabaseMock = (returnData: unknown, returnError: unknown = null) => ({
-  from: jest.fn().mockReturnValue({
-    select: jest.fn().mockReturnThis(),
-    update: jest.fn().mockReturnThis(),
-    insert: jest.fn().mockReturnThis(),
-    eq: jest.fn().mockReturnThis(),
-    single: jest.fn().mockResolvedValue({ data: returnData, error: returnError }),
-    maybeSingle: jest.fn().mockResolvedValue({ data: returnData, error: returnError }),
-  }),
-});
-
 beforeEach(() => jest.clearAllMocks());
 
 describe('validateStatusTransition', () => {

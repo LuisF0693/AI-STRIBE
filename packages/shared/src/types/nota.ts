@@ -1,5 +1,5 @@
 export type NotaStatus = 'draft' | 'reviewed' | 'approved' | 'exported';
-export type PdfStatus = 'none' | 'pending' | 'processing' | 'ready' | 'failed';
+export type PdfStatus = 'none' | 'pending' | 'processing' | 'ready' | 'ready_unsigned' | 'failed';
 
 export interface SoapJson {
   subjetivo: string;

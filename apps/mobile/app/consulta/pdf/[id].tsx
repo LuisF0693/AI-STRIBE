@@ -7,11 +7,10 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { View, Text, ActivityIndicator, TouchableOpacity, StyleSheet, Linking } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
+import type { PdfStatus } from '@aiscribe/shared';
 
 const API_BASE = process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:3001';
 const POLL_INTERVAL_MS = 3_000;
-
-type PdfStatus = 'none' | 'pending' | 'processing' | 'ready' | 'ready_unsigned' | 'failed';
 
 interface StatusResponse {
   status: PdfStatus;
